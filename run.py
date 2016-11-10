@@ -13,7 +13,7 @@ def init_spark():
 def main():
     # Initialise spark context and set the data path
     sc        = init_spark()
-    data_path = os.path.join( 'data' , 'idontreallyknow' )
+    data_path = 'swift2d://notebooks'
 
     # Initialise the recommendation engine
     re        = RecommendationEngine( sc , dat_path )

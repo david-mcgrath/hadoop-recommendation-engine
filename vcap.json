@@ -1,0 +1,10 @@
+{
+  "credentials": {
+    "tenant_id": "s226-3bfa7401ec1542-d9ec086b762a",
+    "tenant_id_full": "a36b185b-2ada-4e98-a226-3bfa7401ec15_5fc15b05-77f3-408c-a842-d9ec086b762a",
+    "cluster_master_url": "https://spark.bluemix.net",
+    "instance_id": "a36b185b-2ada-4e98-a226-3bfa7401ec15",
+    "tenant_secret": "d1474eac-8e00-454b-a444-c9c64190ef6c",
+    "plan": "ibm.SparkService.PayGoPersonal"
+  }
+}

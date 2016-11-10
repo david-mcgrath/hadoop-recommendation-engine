@@ -3,6 +3,8 @@
 import os
 from pyspark.mllib.recommendation import ALS, Rating
 
+# import bluemix_get_file as bm
+
 # Recommendation engine class
 class RecommendationEngine:
 
@@ -57,17 +59,19 @@ class RecommendationEngine:
 
         # Other parameters
         # SWITCHING OVER TO MOVIE DATASET (formatted in a nicer way)
-        file_name       = os.path.join( data_path , 'ratings.csv' )
-        movies_fname    = os.path.join( data_path , 'movies.csv' )
+        ratings_path = os.path.join( data_path , 'ratings.csv' )
+        movies_path  = os.path.join( data_path , 'movies.csv' )
 
         # Spark context
         self.sc = sc
 
         # Load dataset
-        raw    = sc.textFile( view_path ) # Load
+        raw    = sc.textFile( ratings_path ) # Load
+        # raw    = sc.parallelize( bm.get_ratings() )
         header = raw.take(1)[0]           # Get header, to remove it later
 
-        raw_m  = sc.textFile( view_path ) # Load
+        raw_m  = sc.textFile( movies_path ) # Load
+        # raw_m  = sc.parallelize( bm.get_movies() )
         head_m = raw.take(1)[0]           # Get header, to remove it later
         
         # Parse into RDD. Remove header, then split at \t (tsv), take 0,1,3 (uid,artistid,plays). Finally cache.
