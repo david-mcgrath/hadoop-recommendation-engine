@@ -8,7 +8,7 @@ class RecommendationEngine:
 
     # Trains the model
     def __train_model( self ):
-        self.model = ALS.trainImplicit( self.data , self.rank , seed=self.seed , iterations = self.iterations , lambda_=self.reg_para )
+        self.model = ALS.train( self.data , self.rank , seed=self.seed , iterations = self.iterations , lambda_=self.reg_para )
 
     # Adds new ratings to the existing RDD and retrains the model
     # Note that this should be done in batches, not just for every new play
