@@ -1,3 +1,5 @@
+# STILL NEED TO MAKE SURE ALL OF THE INDICES ARE CORRECT!
+
 import os
 from pyspark.mllib.recommendation import ALS
 
@@ -22,6 +24,13 @@ class RecommendationEngine:
 
         return plays
 
+    # Predicts ratings for a given set of user and artist pairs
+    # Returns RDD ( artist_id , artist_name , rating )
+    def __predict_ratings( self , new_artists ):
+        predicted             = self.model.predictAll( new_artists )
+        predicted_rating      = predicted.map( lambda x: (x.product,x.rating) )
+        predicted_rating_name = predicted_rating.join( self.artists
+
     # Gets the top n recommended artists for the user
     def get_recommended( self , user , n ):
         # NEED A LIST OF ARTISTS!
@@ -45,6 +54,7 @@ class RecommendationEngine:
 
         # Other parameters
         file_name       = os.path.join( data_path , 'userid-timestamp-artid-artname-traid-traname.tsv' )
+        # CHANGE THIS TO THE NEW 360K DATASET!
 
         # Spark context
         self.sc = sc
