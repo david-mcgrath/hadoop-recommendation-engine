@@ -31,7 +31,7 @@ Changed to MovieLens dataset because it's a lot cleaner and easier to use. Small
 ##File List:##
 
 dataset/movies_small.csv
-> *movie data, ids and name*
+> *movie data: movie_id, title, genre. Genre unused, but could improve accuracy by adding content-based filtering in addition to collaborative filtering*
   
 dataset/ratings_small.csv
 > *ratings: user_id, movie_id, rating, timestamp. 100k ratings total*
