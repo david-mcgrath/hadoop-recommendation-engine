@@ -1,0 +1,141 @@
+bash-4.2$ ./RUNTHIS.sh
+{"url":"https://spark.bluemix.net/tenant/data/engine.py"}To see the log, in another terminal window run the following command:
+tail -f spark-submit_1478846309347120126.log
+
+
+Uploading ./engine.py
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  4307    0    98  100  4209     75   3249  0:00:01  0:00:01 --:--:--  3250
+
+Uploading ./run.py
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2348    0    95  100  2253     74   1762  0:00:01  0:00:01 --:--:--  1764
+
+Submitting Job
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1055  100   297  100   758    282    720  0:00:01  0:00:01 --:--:--   720
+
+Job submitted : driver-20161111003833-9163-7b6ff4c6-4627-47f4-8838-82a4bcaceda1
+
+Polling job status.  Poll #1.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     81    104  0:00:02  0:00:02 --:--:--   104
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #2.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     92    117  0:00:02  0:00:02 --:--:--   117
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #3.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     81    103  0:00:02  0:00:02 --:--:--   103
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #4.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     73     93  0:00:02  0:00:02 --:--:--    93
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #5.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     93    118  0:00:02  0:00:02 --:--:--   118
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #6.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     45     58  0:00:04  0:00:04 --:--:--    64
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #7.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     86    110  0:00:02  0:00:02 --:--:--   110
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #8.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     94    120  0:00:02  0:00:02 --:--:--   120
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #9.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     85    108  0:00:02  0:00:02 --:--:--   108
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #10.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     87    112  0:00:02  0:00:02 --:--:--   111
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #11.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     91    116  0:00:02  0:00:02 --:--:--   116
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #12.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     97    124  0:00:02  0:00:02 --:--:--   124
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #13.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   482  100   212  100   270     95    121  0:00:02  0:00:02 --:--:--   121
+driverStatus is RUNNING
+Next poll in 10 seconds.
+
+Polling job status.  Poll #14.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   483  100   213  100   270     36     45  0:00:06  0:00:05  0:00:01     0
+driverStatus is FINISHED
+
+Job finished
+
+Downloading stdout_1478846309347120126
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1439    0  1439    0     0    439      0 --:--:--  0:00:03 --:--:--   439
+
+Downloading stderr_1478846309347120126
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  287k    0  287k    0     0   145k      0 --:--:--  0:00:01 --:--:--  145k
+
+Deleting workspace on server
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100     2    0     2    0     0      1      0 --:--:--  0:00:01 --:--:--     1
+
+Submission complete.
+spark-submit log file: spark-submit_1478846309347120126.log
+View job's stdout log at stdout_1478846309347120126
+View job's stderr log at stderr_1478846309347120126
+bash-4.2$ 

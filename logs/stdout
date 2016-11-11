@@ -1,0 +1,45 @@
+new_ratings = [
+        (0,260,4.0), # Star Wars
+        (0,1,3.0),   # Toy Story
+        (0,16,3.0),  # Casino
+        (0,25,4.0),  # Leaving Las Vegas
+        (0,32,4.0),  # Twelve Monkeys
+        (0,335,1.0), # Flintstones, The
+        (0,379,1.0), # Timecop
+        (0,296,3.0), # Pulp Fiction
+        (0,858,5.0), # Godfather, The
+        (0,50,4.0)   # Usual Suspects, The
+        ]
+
+
+
+no extra config
+load default config from : /usr/local/src/spark160master/spark/profile/batch/
+PythonRDD[221] at RDD at PythonRDD.scala:43
+PythonRDD[438] at RDD at PythonRDD.scala:43
+
+[(u'Madagascar (2005)', 16.39631764000228, 28),
+ (u"Miller's Crossing (1990)", 14.87431821707141, 27),
+ (u'"Village', 14.8403172489341, 29),
+ (u'Dodgeball: A True Underdog Story (2004)',14.414423658924594, 37),
+ (u'"Good Night', 13.934383295847484, 27),
+ (u'"American Werewolf in London', 13.49824806634597, 38),
+ (u'Seabiscuit (2003)', 13.389368480400234, 25),
+ (u'Malcolm X (1992)', 12.857042982051862, 29),
+ (u'"Motorcycle Diaries', 12.81646921788561, 26),
+ (u'Dr. No (1962)', 12.558515557831686, 31),
+ (u'Signs (2002)', 12.33511000147452, 54),
+ (u'Boyz N the Hood (1991)', 12.267853500543092, 27),
+ (u'"Dirty Dozen', 11.971495427041464, 35),
+ (u'"Day After Tomorrow', 11.89670942515465, 25),
+ (u'Gosford Park (2001)', 11.875712281349971, 29),
+ (u"Pirates of the Caribbean: At World's End (2007)",11.74794712861193, 33),
+ (u'About Schmidt (2002)', 11.648463774560547, 34),
+ (u'Laura (1944)', 11.62910453838511, 26),
+ (u'Mad Max (1979)', 11.5419961213981, 35),
+ (u'Adaptation (2002)', 11.289969145754418, 42),
+ (u"Monster's Ball (2001)", 11.202372351467488, 27),
+ (u'Sideways (2004)', 11.142235222123457, 45),
+ (u'12 Angry Men (1957)', 11.084977869768643, 74),
+ (u'Napoleon Dynamite (2004)', 11.078698832500784, 45),
+ (u'From Russia with Love (1963)', 11.055974955195246, 32)]

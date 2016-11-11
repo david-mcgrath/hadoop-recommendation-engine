@@ -5,18 +5,24 @@ from pyspark.mllib.recommendation import ALS, Rating
 
 # import bluemix_get_file as bm
 
+def count_fn( l ):
+    n = len(l[1])
+    return l[0] , n
+
 # Recommendation engine class
 class RecommendationEngine:
 
     # Counts the number of ratings for each movie
-    def __count_ratings( self , ratings ):
-        return ratings.map( lambda l: l[1] ).countByValue()
+    def __count_ratings( self ):
+        grouped = self.data.map( lambda l: (l[1],l[2])).groupByKey()
+        count   = grouped.map( count_fn )
+        return count
 
     # Trains the model
     def __train_model( self ):
         self.model  = ALS.train( self.data , self.rank , seed=self.seed , iterations = self.iterations , lambda_=self.reg_para )
-        self.counts = self.__count_ratings( self.data )
-        print counts
+        self.counts = self.__count_ratings()
+        print self.counts
 
     # Adds new ratings to the existing RDD and retrains the model
     # Note that this should be done in batches, not just for every new play
@@ -33,14 +39,16 @@ class RecommendationEngine:
 
         return ratings
 
-    # Predicts ratings for a given set of user and artist pairs
-    # Returns RDD ( artist_id , artist_name , rating )
+    # Predicts ratings for a given set of user and movie pairs
+    # Returns RDD ( rating , movie_id , rating_count )
     def __predict_ratings( self , unrated ):
-        predicted             = self.model.predictAll( unrated )
-        predicted_rating      = predicted.map( lambda x: (x.product,x.rating) )
-        predicted_rating_name = predicted_rating.join( self.movies )
+        predicted = self.model.predictAll( unrated )
+        predicted = predicted.map( lambda x: (x.product,x.rating) )
+        predicted = predicted.join( self.movies ).join( self.counts )
 
-        return predicted_rating
+        predicted = predicted.map( lambda l: (l[1][0][1],l[1][0][0],l[1][1]) )
+
+        return predicted
 
     # Gets the top n recommended movies for the user
     def get_recommended( self , user_id , n ):
@@ -50,8 +58,8 @@ class RecommendationEngine:
         # codementor.io tutorial had this wrong I believe FIX IT LATER
         unrated = self.movies.filter( lambda r: not r[1]==user_id ).map( lambda x: (user_id,x[0]) )
 
-        # Get predicted ratings
-        ratings = self.__predict_ratings( unrated ).takeOrdered( n , key=lambda x: -x[1] )
+        # Get predicted ratings, removing all with less than 25 ratings (avoids outliers)
+        ratings = self.__predict_ratings( unrated ).filter( lambda l: l[2] >= 25 ).takeOrdered( n , key=lambda x: -x[1] )
 
         return ratings
 
@@ -65,8 +73,8 @@ class RecommendationEngine:
 
         # Other parameters
         # SWITCHING OVER TO MOVIE DATASET (formatted in a nicer way)
-        ratings_path = data_path + '/ratings.csv'
-        movies_path  = data_path + '/movies.csv'
+        ratings_path = data_path + '/ratings_small.csv'
+        movies_path  = data_path + '/movies_small.csv'
 
         # Spark context
         self.sc = sc

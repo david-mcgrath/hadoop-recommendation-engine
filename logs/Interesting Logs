@@ -1,0 +1,85 @@
+
+16/11/10 23:09:29 WARN cluster.ego.EGODeployScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/11/10 23:09:44 WARN cluster.ego.EGODeployScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/11/10 23:09:59 WARN cluster.ego.EGODeployScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/11/10 23:10:14 WARN cluster.ego.EGODeployScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+
+
+
+
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 1.1 in stage 16.0 (TID 117, yp-spark-dal09-env5-0027, partition 1,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 WARN spark.scheduler.TaskSetManager: Lost task 3.0 in stage 16.0 (TID 116, yp-spark-dal09-env5-0027): java.lang.AssertionError: assertion failed: lapack.dpotrs returned 2.
+	at scala.Predef$.assert(Predef.scala:179)
+	at org.apache.spark.mllib.linalg.CholeskyDecomposition$.solve(CholeskyDecomposition.scala:40)
+	at org.apache.spark.ml.recommendation.ALS$CholeskySolver.solve(ALS.scala:439)
+	at org.apache.spark.ml.recommendation.ALS$$anonfun$org$apache$spark$ml$recommendation$ALS$$computeFactors$1.apply(ALS.scala:1216)
+	at org.apache.spark.ml.recommendation.ALS$$anonfun$org$apache$spark$ml$recommendation$ALS$$computeFactors$1.apply(ALS.scala:1177)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$mapValues$1$$anonfun$apply$41$$anonfun$apply$42.apply(PairRDDFunctions.scala:755)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$mapValues$1$$anonfun$apply$41$$anonfun$apply$42.apply(PairRDDFunctions.scala:755)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at org.apache.spark.util.collection.ExternalAppendOnlyMap.insertAll(ExternalAppendOnlyMap.scala:153)
+	at org.apache.spark.rdd.CoGroupedRDD$$anonfun$compute$4.apply(CoGroupedRDD.scala:153)
+	at org.apache.spark.rdd.CoGroupedRDD$$anonfun$compute$4.apply(CoGroupedRDD.scala:152)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at org.apache.spark.rdd.CoGroupedRDD.compute(CoGroupedRDD.scala:152)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:306)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:270)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:306)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:270)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:306)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:270)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:306)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:270)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:73)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:89)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:233)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1153)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:785)
+
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 3.1 in stage 16.0 (TID 118, yp-spark-dal09-env5-0027, partition 3,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 2.0 in stage 16.0 (TID 115) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 8.) [duplicate 2]
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 2.1 in stage 16.0 (TID 119, yp-spark-dal09-env5-0027, partition 2,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 1.1 in stage 16.0 (TID 117) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 8.) [duplicate 3]
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 1.2 in stage 16.0 (TID 120, yp-spark-dal09-env5-0027, partition 1,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 3.1 in stage 16.0 (TID 118) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 2.) [duplicate 1]
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 3.2 in stage 16.0 (TID 121, yp-spark-dal09-env5-0027, partition 3,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 2.1 in stage 16.0 (TID 119) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 8.) [duplicate 4]
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 2.2 in stage 16.0 (TID 122, yp-spark-dal09-env5-0027, partition 2,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 1.2 in stage 16.0 (TID 120) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 8.) [duplicate 5]
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 1.3 in stage 16.0 (TID 123, yp-spark-dal09-env5-0027, partition 1,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 3.2 in stage 16.0 (TID 121) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 2.) [duplicate 2]
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 3.3 in stage 16.0 (TID 124, yp-spark-dal09-env5-0027, partition 3,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 2.2 in stage 16.0 (TID 122) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 8.) [duplicate 6]
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Starting task 2.3 in stage 16.0 (TID 125, yp-spark-dal09-env5-0027, partition 2,PROCESS_LOCAL, 2288 bytes)
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 1.3 in stage 16.0 (TID 123) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 8.) [duplicate 7]
+16/11/10 23:12:02 ERROR spark.scheduler.TaskSetManager: Task 1 in stage 16.0 failed 4 times; aborting job
+16/11/10 23:12:02 INFO cluster.ego.EGODeployScheduler: Cancelling stage 16
+16/11/10 23:12:02 INFO cluster.ego.EGODeployScheduler: Stage 16 was cancelled
+16/11/10 23:12:02 INFO spark.scheduler.DAGScheduler: ShuffleMapStage 16 (flatMap at ALS.scala:1170) failed in 0.200 s
+16/11/10 23:12:02 INFO cluster.ego.EGOFineGrainedSchedulerBackend: onStageCompleted: stageId(16)
+16/11/10 23:12:02 INFO spark.scheduler.DAGScheduler: Job 5 failed: count at ALS.scala:263, took 6.161539 s
+16/11/10 23:12:02 INFO spark.scheduler.TaskSetManager: Lost task 3.3 in stage 16.0 (TID 124) on executor yp-spark-dal09-env5-0027: java.lang.AssertionError (assertion failed: lapack.dpotrs returned 2.) [duplicate 3]
+16/11/10 23:12:02 INFO cluster.ego.EGOFineGrainedSchedulerBackend: No stage found
+16/11/10 23:12:02 WARN spark.scheduler.TaskSetManager: Lost task 2.3 in stage 16.0 (TID 125, yp-spark-dal09-env5-0027): TaskKilled (killed intentionally)
+16/11/10 23:12:02 INFO cluster.ego.EGODeployScheduler: Removed TaskSet 16.0, whose tasks have all completed, from pool 
+16/11/10 23:12:02 INFO cluster.ego.EGOFineGrainedSchedulerBackend: No stage found
+16/11/10 23:12:02 INFO deploy.ego.EGOClusterDriverWrapper: Final app status: 1, exitCode: 15, (reason: User class threw exception: User application exited with 1)
+16/11/10 23:12:02 INFO deploy.ego.EGOClusterDriverWrapper: Sending driver program state to master
+Exception in thread "Driver" org.apache.spark.SparkUserAppException: User application exited with 1
+	at org.apache.spark.deploy.PythonRunner$.main(PythonRunner.scala:88)
+	at org.apache.spark.deploy.PythonRunner.main(PythonRunner.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:95)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:55)
+	at java.lang.reflect.Method.invoke(Method.java:507)
+	at org.apache.spark.deploy.ego.EGOClusterDriverWrapper$$anon$3.run(EGOClusterDriverWrapper.scala:430)
+16/11/10 23:12:02 INFO apache.spark.SparkContext: Invoking stop() from shutdown hook
