@@ -1,10 +1,10 @@
-# hadoop-recommendation-engine
+# Hadoop / Spark Recommendation Engine
 
 Recommendation engine for music using last.fm dataset, with Spark running on Hadoop
 
 Changed to MovieLens dataset because it's a lot cleaner and easier to use. Small version of the MovieLens dataset included, the large one failed to upload and caused syncing issues.
 
-**TO RUN:**
+##To Run:##
 
 * Start Apache Spark instance on IBM Bluemix
 
@@ -28,29 +28,55 @@ Changed to MovieLens dataset because it's a lot cleaner and easier to use. Small
   
 **WILL RUN WITHOUT A NEW SPARK CLUSTER AND OBJECT STORAGE SET UP AS LONG AS THE CURRENT CLUSTER IS ACTIVE**
 
-**File list:**
-dataset/movies_small.csv  *movie data, ids and name*
+##File List:##
+
+dataset/movies_small.csv
+> *movie data, ids and name*
   
-dataset/ratings_small.csv *ratings: user_id, movie_id, rating, timestamp. 100k ratings total*
+dataset/ratings_small.csv
+> *ratings: user_id, movie_id, rating, timestamp. 100k ratings total*
   
-logs/bash output          *outputs from bash for an example run of the task*
+logs/bash output
+> *outputs from bash for an example run of the task*
   
-logs/Interesting Logs     *failed with full dataset, appears to run out of resources*
+logs/Interesting Logs
+> *failed with full dataset, appears to run out of resources*
   
-logs/stdout               *output, cleaned up slightly to be more readable with the test ratings included*
+logs/stdout
+> *output, cleaned up slightly to be more readable with the test ratings included*
   
-bluemix_get_file.py       *old mostly pointless script for reading a file from Object Storage, used before credentials issues were sorted out*
+bluemix_get_file.py
+> *old mostly pointless script for reading a file from Object Storage, used before credentials issues were sorted out*
   
-engine.py                 *RecommendationEngine class*
+engine.py
+> *RecommendationEngine class*
   
-key.ppk                   *unimportant*
+key.ppk
+> *unimportant*
   
-README.md                 *this file, obviously*
+README.md
+> *this file, obviously*
   
-run.py                    *main python script, trains the model and then adds test ratings for a new user (retraining), then gets recommendations*
+run.py
+> *main python script, trains the model and then adds test ratings for a new user (retraining), then gets recommendations*
   
-RUNTHIS.sh                *executes the task*
+RUNTHIS.sh
+> *executes the task*
   
-spark-submit.sh           *script to interface with the Spark cluster, provided by IBM*
+spark-submit.sh
+> *script to interface with the Spark cluster, provided by IBM*
   
-vcap.json                 *Spark credentials*
+vcap.json
+> *Spark credentials*
+
+##References##
+
+Heavily based on the tutorial from codementor.io available [here](https://www.codementor.io/spark/tutorial/building-a-recommender-with-apache-spark-python-example-app-part1)
+
+IBM Bluemix documentation, mostly [here](https://console.ng.bluemix.net/docs/services/AnalyticsforApacheSpark/index-gentopic1.html#genTopProcId2), [here](https://console.ng.bluemix.net/docs/services/AnalyticsforApacheSpark/index-gentopic3.html#genTopProcId4), and [here](https://console.ng.bluemix.net/data/notebooks/samples/Precipitation%20Analysis)
+
+Uses the [GroupLens MovieLens dataset](http://grouplens.org/datasets/movielens/)
+
+[Spark documentation](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html)
+
+[R-Bloggers](https://www.r-bloggers.com/recommender-systems-101-a-step-by-step-practical-example-in-r/) helped to understand the subject a bit better
