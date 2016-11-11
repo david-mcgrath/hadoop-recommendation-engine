@@ -16,7 +16,8 @@ class RecommendationEngine:
     # Note that this should be done in batches, not just for every new play
     def add_ratings( self , ratings ):
         # Change to an RDD
-        new_data  = self.sc.parallelize( ratings )
+        new_data = self.sc.parallelize( ratings )
+        new_data = new_data.map( lambda l: Rating( int(l[0]) , int(l[1]) , float(l[2]) ) )
 
         # CHANGE IT TO SUM THE NUMBER OF PLAYS FOR EXISTING USERS
         self.data = self.data.union( new_data )
@@ -59,20 +60,20 @@ class RecommendationEngine:
 
         # Other parameters
         # SWITCHING OVER TO MOVIE DATASET (formatted in a nicer way)
-        ratings_path = os.path.join( data_path , 'ratings.csv' )
-        movies_path  = os.path.join( data_path , 'movies.csv' )
+        ratings_path = data_path + '/ratings.csv'
+        movies_path  = data_path + '/movies.csv'
+
+        print ratings_path
 
         # Spark context
         self.sc = sc
 
         # Load dataset
         raw    = sc.textFile( ratings_path ) # Load
-        # raw    = sc.parallelize( bm.get_ratings() )
-        header = raw.take(1)[0]           # Get header, to remove it later
+        header = raw.first()                 # Get header, to remove it later
 
         raw_m  = sc.textFile( movies_path ) # Load
-        # raw_m  = sc.parallelize( bm.get_movies() )
-        head_m = raw.take(1)[0]           # Get header, to remove it later
+        head_m = raw_m.first()              # Get header, to remove it later
         
         # Parse into RDD. Remove header, then split at \t (tsv), take 0,1,3 (uid,artistid,plays). Finally cache.
         self.data   =   raw.filter( lambda l: l!=header ).map( lambda l: l.split(",") ).map( lambda tok: ( Rating(int(tok[0]),int(tok[1]),float(tok[3])) ) ).cache()
@@ -85,5 +86,5 @@ class RecommendationEngine:
         self.__train_model()
 
     # Attach functions to class methods
-    RecommendationEngine.add_ratings     = add_ratings
-    RecommendationEngine.get_recommended = get_recommended
+    # RecommendationEngine.add_ratings     = add_ratings
+    # RecommendationEngine.get_recommended = get_recommended
