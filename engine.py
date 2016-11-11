@@ -8,9 +8,15 @@ from pyspark.mllib.recommendation import ALS, Rating
 # Recommendation engine class
 class RecommendationEngine:
 
+    # Counts the number of ratings for each movie
+    def __count_ratings( self , ratings ):
+        return ratings.map( lambda l: l[1] ).countByValue()
+
     # Trains the model
     def __train_model( self ):
-        self.model = ALS.train( self.data , self.rank , seed=self.seed , iterations = self.iterations , lambda_=self.reg_para )
+        self.model  = ALS.train( self.data , self.rank , seed=self.seed , iterations = self.iterations , lambda_=self.reg_para )
+        self.counts = self.__count_ratings( self.data )
+        print counts
 
     # Adds new ratings to the existing RDD and retrains the model
     # Note that this should be done in batches, not just for every new play
@@ -34,7 +40,7 @@ class RecommendationEngine:
         predicted_rating      = predicted.map( lambda x: (x.product,x.rating) )
         predicted_rating_name = predicted_rating.join( self.movies )
 
-        return predicted_rating_name
+        return predicted_rating
 
     # Gets the top n recommended movies for the user
     def get_recommended( self , user_id , n ):
@@ -42,13 +48,12 @@ class RecommendationEngine:
 
         # Gets list of movies the user hasn't rated
         # codementor.io tutorial had this wrong I believe FIX IT LATER
-        unrated = self.artists.filter( lambda plays: not plays[1]==user_id ).map( lambda x: (user_id,x[0]) )
+        unrated = self.movies.filter( lambda r: not r[1]==user_id ).map( lambda x: (user_id,x[0]) )
 
         # Get predicted ratings
         ratings = self.__predict_ratings( unrated ).takeOrdered( n , key=lambda x: -x[1] )
 
         return ratings
-        
 
     # Initiliase recommendation engine. sc is spark context
     def __init__( self , sc , data_path ):
@@ -62,8 +67,6 @@ class RecommendationEngine:
         # SWITCHING OVER TO MOVIE DATASET (formatted in a nicer way)
         ratings_path = data_path + '/ratings.csv'
         movies_path  = data_path + '/movies.csv'
-
-        print ratings_path
 
         # Spark context
         self.sc = sc
